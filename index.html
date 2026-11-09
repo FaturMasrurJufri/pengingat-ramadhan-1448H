@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Pengingat Menuju 1 Ramadhan 1448 H - Masjid Al-Marhamah</title>
+    <title>Pengingat Menuju 1 Ramadhan 1448 H - Untuk Kita Semua</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Google Fonts: Amiri, Plus Jakarta Sans & Orbitron -->
@@ -134,7 +134,7 @@
                 </div>
                 <div>
                     <h1 class="text-xs font-extrabold text-white tracking-wide leading-tight">PENGINGAT RAMADHAN</h1>
-                    <p class="text-[10px] font-bold text-gold-400 uppercase tracking-wider">Masjid Al-Marhamah</p>
+                    <p class="text-[10px] font-bold text-gold-400 uppercase tracking-wider">Untuk Kita Semua</p>
                 </div>
             </div>
             <a href="index.html" class="text-[11px] bg-emerald-900/80 hover:bg-emerald-800 text-gold-300 px-3 py-1.5 rounded-xl border border-gold-500/30 font-semibold transition-all">
@@ -191,10 +191,10 @@
                         </div>
                     </div>
 
-                    <!-- Keterangan Maghrib / Hijriyah -->
+                    <!-- Keterangan Hisab Hakiki Imkanur Rukyah -->
                     <div class="mt-2 pt-1.5 border-t border-gold-500/25 w-full text-center">
                         <span id="maghrib-info" class="text-[9px] sm:text-[10px] text-emerald-300 font-medium tracking-wide">
-                            Pergantian Hari Hijriyah: Maghrib 17:35 WIB (Sleman)
+                            Hitungan berdasar Hisab Hakiki Imkanur Rukyah
                         </span>
                     </div>
 
@@ -272,7 +272,7 @@
 
             <!-- Footer kecil di dalam scroll -->
             <div class="text-center text-[10px] text-slate-500 py-2">
-                © 1447 H / 2026 M Panitia Ramadhan Masjid Al-Marhamah
+                © 1447 H / 2026 M — Pengingat Ramadhan Untuk Kita Semua
             </div>
 
         </section>
@@ -341,11 +341,6 @@
             const updateClock = () => {
                 const now = new Date();
                 const todayMaghrib = getTodayLocalMaghrib(now, coords.lat, coords.lng);
-
-                const hh = String(todayMaghrib.hours).padStart(2, '0');
-                const mm = String(todayMaghrib.minutes).padStart(2, '0');
-                const locLabel = coords.isGPS ? 'GPS Lokal' : 'Sleman';
-                setElText('maghrib-info', `Pergantian Hari Hijriyah: Maghrib ${hh}:${mm} WIB (${locLabel})`);
 
                 const targetHijriMoment = new Date(
                     2027,
