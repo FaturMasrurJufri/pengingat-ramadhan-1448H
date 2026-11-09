@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="id" class="h-full">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Pengingat Menuju 1 Ramadhan 1448 H - Masjid Al-Marhamah</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Amiri, Plus Jakarta Sans & Orbitron -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Orbitron:wght@700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        emerald: { 850: '#064e3b', 900: '#022c22', 950: '#011c16' },
+                        gold: { 300: '#fde047', 400: '#facc15', 500: '#eab308', 600: '#ca8a04', 700: '#a16207' }
+                    },
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                        amiri: ['Amiri', 'serif'],
+                        digital: ['Orbitron', 'monospace']
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            overflow: hidden; /* Mengunci halaman agar pas 1 layar Android penuh */
+            background-color: #011c16;
+            color: #f8fafc;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+        .gold-gradient-text {
+            background: linear-gradient(135deg, #FFF3B0 0%, #FACC15 45%, #CA8A04 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .glass-card {
+            background: rgba(2, 44, 34, 0.88);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            border: 1px solid rgba(234, 179, 8, 0.35);
+        }
+        .pattern-bg {
+            background-color: #011c16;
+            background-image: radial-gradient(#ca8a04 0.6px, transparent 0.6px);
+            background-size: 24px 24px;
+        }
+
+        /* GOLD GLORIOUS SUPER LUXURY DIGITAL CLOCK */
+        .glorious-clock-frame {
+            background: linear-gradient(135deg, #b45309 0%, #fde047 25%, #ca8a04 50%, #fef08a 75%, #92400e 100%);
+            background-size: 200% 200%;
+            animation: goldShimmer 5s ease infinite;
+            padding: 2.5px;
+            border-radius: 1.25rem;
+            box-shadow: 0 0 30px rgba(250, 204, 21, 0.4), 0 10px 25px rgba(0, 0, 0, 0.8);
+        }
+        .glorious-clock-inner {
+            background: radial-gradient(circle at center, #042f2e 0%, #01110d 100%);
+            border-radius: calc(1.25rem - 2.5px);
+            box-shadow: inset 0 3px 15px rgba(0, 0, 0, 0.95);
+        }
+        .digital-slot {
+            background: linear-gradient(180deg, #020617 0%, #091e1a 50%, #020617 100%);
+            border: 1px solid rgba(250, 204, 21, 0.5);
+            box-shadow: inset 0 4px 12px rgba(0, 0, 0, 0.95), 0 0 15px rgba(234, 179, 8, 0.25);
+            border-radius: 0.75rem;
+            min-width: 3.6rem;
+        }
+        @media (min-width: 380px) {
+            .digital-slot {
+                min-width: 4.2rem;
+            }
+        }
+        .digital-number {
+            color: #fef08a;
+            text-shadow: 0 0 10px rgba(250, 204, 21, 0.95), 0 0 20px rgba(234, 179, 8, 0.65), 0 2px 4px rgba(0, 0, 0, 0.9);
+            letter-spacing: 0.05em;
+        }
+        .colon-glow {
+            color: #facc15;
+            text-shadow: 0 0 12px rgba(250, 204, 21, 1);
+            animation: blinkColon 1s steps(1) infinite;
+        }
+        @keyframes goldShimmer {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        @keyframes blinkColon {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.25; }
+        }
+
+        /* Custom Scrollbar untuk kotak doa */
+        .custom-scroll::-webkit-scrollbar {
+            width: 4px;
+        }
+        .custom-scroll::-webkit-scrollbar-track {
+            background: rgba(1, 28, 22, 0.6);
+            border-radius: 4px;
+        }
+        .custom-scroll::-webkit-scrollbar-thumb {
+            background: rgba(250, 204, 21, 0.4);
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body class="pattern-bg flex flex-col h-full selection:bg-gold-500 selection:text-emerald-950">
+
+    <!-- TOP HEADER (FIXED - TIDAK BERGESER SAAT DISCROLL) -->
+    <header class="shrink-0 bg-emerald-950/95 border-b border-gold-500/30 px-4 py-3 shadow-2xl z-20">
+        <div class="max-w-md mx-auto flex items-center justify-between">
+            <div class="flex items-center space-x-2.5">
+                <div class="w-10 h-10 rounded-full bg-gradient-to-tr from-gold-600 to-gold-300 flex items-center justify-center p-0.5 shadow-md shadow-gold-500/20">
+                    <div class="w-full h-full bg-emerald-950 rounded-full flex items-center justify-center">
+                        <span class="font-amiri text-gold-400 text-lg">🕌</span>
+                    </div>
+                </div>
+                <div>
+                    <h1 class="text-xs font-extrabold text-white tracking-wide leading-tight">PENGINGAT RAMADHAN</h1>
+                    <p class="text-[10px] font-bold text-gold-400 uppercase tracking-wider">Masjid Al-Marhamah</p>
+                </div>
+            </div>
+            <a href="index.html" class="text-[11px] bg-emerald-900/80 hover:bg-emerald-800 text-gold-300 px-3 py-1.5 rounded-xl border border-gold-500/30 font-semibold transition-all">
+                <i class="fa-solid fa-arrow-left mr-1"></i> Beranda
+            </a>
+        </div>
+    </header>
+
+    <!-- MAIN CONTAINER (1 LAYAR PENUH PORTRAIT) -->
+    <main class="flex-1 max-w-md w-full mx-auto px-4 py-4 flex flex-col overflow-hidden">
+        
+        <!-- BAGIAN 1: HITUNG MUNDUR GOLD GLORIOUS (FIXED - TIDAK IKUT BERGESER) -->
+        <section class="shrink-0 pb-4 border-b border-gold-500/20">
+            <div class="text-center mb-2.5">
+                <span class="text-[10px] font-bold uppercase tracking-widest text-gold-400">— Hitungan Mundur Suci —</span>
+                <h2 class="text-base sm:text-lg font-bold text-white font-amiri leading-snug">
+                    Menuju 1 Ramadhan 1448 H
+                </h2>
+            </div>
+
+            <!-- Jam Digital 4 Kotak -->
+            <div class="glorious-clock-frame">
+                <div class="glorious-clock-inner px-3 py-3 flex flex-col items-center justify-center">
+                    
+                    <div class="flex items-center justify-center space-x-1 sm:space-x-2">
+                        <!-- HARI -->
+                        <div class="digital-slot px-2.5 py-1.5 text-center">
+                            <span id="cd-days" class="font-digital text-xl sm:text-2xl font-black digital-number block leading-none">00</span>
+                            <span class="text-[8px] sm:text-[9px] font-extrabold text-gold-400 uppercase tracking-widest mt-1 block">Hari</span>
+                        </div>
+
+                        <span class="font-digital text-lg sm:text-2xl font-black colon-glow -mt-3">:</span>
+
+                        <!-- JAM -->
+                        <div class="digital-slot px-2.5 py-1.5 text-center">
+                            <span id="cd-hours" class="font-digital text-xl sm:text-2xl font-black digital-number block leading-none">00</span>
+                            <span class="text-[8px] sm:text-[9px] font-extrabold text-gold-400 uppercase tracking-widest mt-1 block">Jam</span>
+                        </div>
+
+                        <span class="font-digital text-lg sm:text-2xl font-black colon-glow -mt-3">:</span>
+
+                        <!-- MENIT -->
+                        <div class="digital-slot px-2.5 py-1.5 text-center">
+                            <span id="cd-minutes" class="font-digital text-xl sm:text-2xl font-black digital-number block leading-none">00</span>
+                            <span class="text-[8px] sm:text-[9px] font-extrabold text-gold-400 uppercase tracking-widest mt-1 block">Menit</span>
+                        </div>
+
+                        <span class="font-digital text-lg sm:text-2xl font-black colon-glow -mt-3">:</span>
+
+                        <!-- DETIK -->
+                        <div class="digital-slot px-2.5 py-1.5 text-center">
+                            <span id="cd-seconds" class="font-digital text-xl sm:text-2xl font-black digital-number block leading-none">00</span>
+                            <span class="text-[8px] sm:text-[9px] font-extrabold text-gold-400 uppercase tracking-widest mt-1 block">Detik</span>
+                        </div>
+                    </div>
+
+                    <!-- Keterangan Maghrib / Hijriyah -->
+                    <div class="mt-2 pt-1.5 border-t border-gold-500/25 w-full text-center">
+                        <span id="maghrib-info" class="text-[9px] sm:text-[10px] text-emerald-300 font-medium tracking-wide">
+                            Pergantian Hari Hijriyah: Maghrib 17:35 WIB (Sleman)
+                        </span>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- BAGIAN 2: PESAN & DOA (SCROLLABLE AREA - TAMPILAN DALAM 1 LAYAR DENGAN GESER TEKS) -->
+        <section class="flex-1 overflow-y-auto custom-scroll pt-4 pb-6 space-y-4 pr-1">
+            
+            <!-- Kartu Pesan & Doa Spiritual -->
+            <div class="glass-card rounded-2xl p-5 space-y-4 shadow-xl border border-gold-500/30">
+                <div class="flex items-center space-x-2 text-gold-400 border-b border-gold-500/20 pb-2">
+                    <i class="fa-solid fa-heart-pulse"></i>
+                    <h3 class="text-xs font-bold uppercase tracking-wider text-white">Pesan & Harapan Ramadhan</h3>
+                </div>
+
+                <div class="space-y-3 text-xs sm:text-sm text-slate-300 font-light leading-relaxed">
+                    <p>
+                        Semoga Allah SWT senantiasa memberikan kita kesehatan, umur yang penuh keberkahan, serta kesempatan untuk kembali berjumpa dengan bulan suci Ramadhan 1448 Hijriah.
+                    </p>
+                    <p>
+                        Semoga ketika Ramadhan tiba, kita dipertemukan dalam keadaan sehat wal afiat, lahir maupun batin, dilapangkan hati untuk beribadah, dimudahkan dalam menjalankan segala amal kebaikan, serta dilimpahi rahmat, ampunan, dan keberkahan-Nya.
+                    </p>
+                    <p>
+                        Semoga Allah senantiasa menjaga langkah kita, melindungi keluarga dan orang-orang yang kita cintai, menjauhkan kita dari segala marabahaya, serta menjadikan kita hamba-hamba-Nya yang senantiasa istiqamah dalam iman dan takwa.
+                    </p>
+                    <p class="font-medium text-gold-300 bg-emerald-950/60 p-3 rounded-xl border border-gold-500/20">
+                        "Ya Allah, janganlah Engkau jadikan Ramadhan mendatang sebagai Ramadhan yang kita rindukan tetapi tidak sempat kita jumpai. Pertemukanlah kami dengannya dalam keadaan sehat, penuh iman, dan dalam naungan rahmat serta perlindungan-Mu. Aamiin Ya Rabbal 'Alamin."
+                    </p>
+                </div>
+            </div>
+
+            <!-- Kartu Kumpulan Doa Pilihan -->
+            <div class="glass-card rounded-2xl p-5 space-y-5 shadow-xl border border-gold-500/30">
+                <div class="flex items-center space-x-2 text-gold-400 border-b border-gold-500/20 pb-2">
+                    <i class="fa-solid fa-book-quran"></i>
+                    <h3 class="text-xs font-bold uppercase tracking-wider text-white">Doa-Doa Pilihan</h3>
+                </div>
+
+                <!-- Doa 1 -->
+                <div class="space-y-2 bg-emerald-950/70 p-3.5 rounded-xl border border-emerald-800">
+                    <p class="font-amiri text-xl sm:text-2xl text-gold-300 text-right leading-loose" dir="rtl">
+                        اللَّهُمَّ بَارِكْ لَنَا فِي رَجَبَ وَشَعْبَانَ، وَبَلِّغْنَا رَمَضَانَ
+                    </p>
+                    <p class="text-[11px] text-slate-400 italic">HR. Ahmad dalam Musnad-nya, dari Anas bin Malik رضي الله عنه</p>
+                    <p class="text-xs text-slate-200 font-medium">
+                        Artinya: <span class="font-normal italic">"Ya Allah, berkahilah kami pada bulan Rajab dan Sya'ban, serta sampaikanlah umur kami hingga bulan Ramadhan."</span>
+                    </p>
+                </div>
+
+                <!-- Doa 2 -->
+                <div class="space-y-2 bg-emerald-950/70 p-3.5 rounded-xl border border-emerald-800">
+                    <p class="font-amiri text-xl sm:text-2xl text-gold-300 text-right leading-loose" dir="rtl">
+                        اللَّهُمَّ إِنَّا نَسْأَلُكَ الْعَفْوَ وَالْعَافِيَةَ فِي الدُّنْيَا وَالْآخِرَةِ
+                    </p>
+                    <p class="text-[11px] text-slate-400 italic">HR. Abu Dawud dan Ibnu Majah.</p>
+                    <p class="text-xs text-slate-200 font-medium">
+                        Artinya: <span class="font-normal italic">"Ya Allah, sesungguhnya kami memohon kepada-Mu ampunan dan keselamatan di dunia dan akhirat."</span>
+                    </p>
+                </div>
+
+                <!-- Doa 3 -->
+                <div class="space-y-2 bg-emerald-950/70 p-3.5 rounded-xl border border-emerald-800">
+                    <p class="font-amiri text-xl sm:text-2xl text-gold-300 text-right leading-loose" dir="rtl">
+                        رَبَّنَا تَقَبَّلْ مِنَّا إِنَّكَ أَنْتَ السَّمِيعُ الْعَلِيمُ
+                    </p>
+                    <p class="text-[11px] text-slate-400 italic">QS. Al-Baqarah: 127.</p>
+                    <p class="text-xs text-slate-200 font-medium">
+                        Artinya: <span class="font-normal italic">"Ya Tuhan kami, terimalah amal dari kami. Sesungguhnya Engkau Maha Mendengar lagi Maha Mengetahui."</span>
+                    </p>
+                </div>
+
+            </div>
+
+            <!-- Footer kecil di dalam scroll -->
+            <div class="text-center text-[10px] text-slate-500 py-2">
+                © 1447 H / 2026 M Panitia Ramadhan Masjid Al-Marhamah
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- JAVASCRIPT HITUNG MUNDUR MAGHRIB & GPS -->
+    <script>
+        const setElText = (id, text) => {
+            const el = document.getElementById(id);
+            if (el) el.textContent = text;
+        };
+
+        const getTodayLocalMaghrib = (dateObj, lat, lng) => {
+            const rad = Math.PI / 180;
+            const deg = 180 / Math.PI;
+
+            const year = dateObj.getFullYear();
+            const month = dateObj.getMonth() + 1;
+            const day = dateObj.getDate();
+
+            const startOfYear = new Date(year, 0, 0);
+            const currentDay = new Date(year, month - 1, day);
+            const dayOfYear = Math.floor((currentDay - startOfYear) / 86400000);
+
+            const gamma = ((2 * Math.PI) / 365.25) * (dayOfYear - 1 + (18 - 12) / 24);
+
+            const eqTime = 229.18 * (
+                0.000075 +
+                0.001868 * Math.cos(gamma) -
+                0.032077 * Math.sin(gamma) -
+                0.014615 * Math.cos(2 * gamma) -
+                0.040849 * Math.sin(2 * gamma)
+            );
+
+            const decl = 0.006918 -
+                0.399912 * Math.cos(gamma) +
+                0.070257 * Math.sin(gamma) -
+                0.006758 * Math.cos(2 * gamma) +
+                0.000907 * Math.sin(2 * gamma) -
+                0.002697 * Math.cos(3 * gamma) +
+                0.00148 * Math.sin(3 * gamma);
+
+            const zenith = 91.0;
+            const cosHA = (Math.cos(zenith * rad) / (Math.cos(lat * rad) * Math.cos(decl))) - (Math.tan(lat * rad) * Math.tan(decl));
+
+            if (cosHA > 1 || cosHA < -1) {
+                return { hours: 17, minutes: 35 };
+            }
+
+            const haDeg = Math.acos(cosHA) * deg;
+            const tzOffsetHours = -dateObj.getTimezoneOffset() / 60;
+
+            const sunsetUTCMinutes = 720 - 4 * (lng + haDeg) - eqTime;
+            const maghribLocalMinutes = Math.round(sunsetUTCMinutes + (tzOffsetHours * 60) + 2);
+
+            const hours = Math.floor(maghribLocalMinutes / 60) % 24;
+            const minutes = maghribLocalMinutes % 60;
+
+            return { hours, minutes };
+        };
+
+        const initCountdownHijriyah1448H = () => {
+            let coords = { lat: -7.7381, lng: 110.4225, isGPS: false };
+
+            const updateClock = () => {
+                const now = new Date();
+                const todayMaghrib = getTodayLocalMaghrib(now, coords.lat, coords.lng);
+
+                const hh = String(todayMaghrib.hours).padStart(2, '0');
+                const mm = String(todayMaghrib.minutes).padStart(2, '0');
+                const locLabel = coords.isGPS ? 'GPS Lokal' : 'Sleman';
+                setElText('maghrib-info', `Pergantian Hari Hijriyah: Maghrib ${hh}:${mm} WIB (${locLabel})`);
+
+                const targetHijriMoment = new Date(
+                    2027,
+                    1, // Februari (0-indexed)
+                    7, // Minggu sore 7 Feb 2027 saat Maghrib = masuk 1 Ramadhan 1448 H
+                    todayMaghrib.hours,
+                    todayMaghrib.minutes,
+                    0
+                ).getTime();
+
+                const diff = targetHijriMoment - now.getTime();
+
+                if (diff <= 0) {
+                    setElText('cd-days', '00');
+                    setElText('cd-hours', '00');
+                    setElText('cd-minutes', '00');
+                    setElText('cd-seconds', '00');
+                    return;
+                }
+
+                const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+                setElText('cd-days', String(days).padStart(2, '0'));
+                setElText('cd-hours', String(hours).padStart(2, '0'));
+                setElText('cd-minutes', String(minutes).padStart(2, '0'));
+                setElText('cd-seconds', String(seconds).padStart(2, '0'));
+            };
+
+            if ('geolocation' in navigator) {
+                navigator.geolocation.getCurrentPosition(
+                    (pos) => {
+                        coords = {
+                            lat: pos.coords.latitude,
+                            lng: pos.coords.longitude,
+                            isGPS: true
+                        };
+                        updateClock();
+                    },
+                    () => {
+                        updateClock();
+                    },
+                    { enableHighAccuracy: false, timeout: 8000, maximumAge: 600000 }
+                );
+            }
+
+            updateClock();
+            setInterval(updateClock, 1000);
+        };
+
+        window.addEventListener('DOMContentLoaded', initCountdownHijriyah1448H);
+    </script>
+</body>
+</html>
